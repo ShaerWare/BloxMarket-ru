@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Users Management</h2>
+                <h2>{{ __('Пользователи') }}</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('users.create') }}"> Create New User</a>
+                <a class="btn btn-success" href="{{ route('users.create') }}">{{ __(' Создать нового пользователя') }}</a>
             </div>
         </div>
     </div>
@@ -20,11 +20,11 @@
 
     <table class="table table-bordered">
         <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Roles</th>
-            <th width="280px">Action</th>
+            <th>{{ __('No') }}</th>
+            <th>{{ __('Имя') }}</th>
+            <th>{{ __('Email') }}</th>
+            <th>{{ __('Роль') }}</th>
+            <th width="280px">{{ __('Выбор') }}</th>
         </tr>
         @foreach ($data as $key => $user)
             <tr>
@@ -39,8 +39,8 @@
                     @endif
                 </td>
                 <td>
-                    <a class="btn btn-info" href="{{ route('users.show', $user->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('users.edit', $user->id) }}">Edit</a>
+                    <a class="btn btn-info" href="{{ route('users.show', $user->id) }}">{{ __('Смотреть') }}</a>
+                    <a class="btn btn-primary" href="{{ route('users.edit', $user->id) }}">{{ __('Изменить') }}</a>
                     <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
@@ -54,6 +54,4 @@
     </table>
 
     {!! $data->render() !!}
-
-    <p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
 @endsection
