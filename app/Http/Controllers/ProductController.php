@@ -4,15 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Foundation\Configuration\Middleware;
+
+
 
 class ProductController extends Controller
 {
-    function __construct()
+    public static function middleware(): array
     {
-        /*$this->middleware('permission:product-list|product-create|product-edit|product-delete', ['only' => ['index','show']]);
-        $this->middleware('permission:product-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:product-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:product-delete', ['only' => ['destroy']]);*/
+        return [
+            new Middleware('permission:product-list|product-create|product-edit|product-delete', only: ['index', 'show']),
+            new Middleware('permission:product-create', only: ['create', 'store']),
+            new Middleware('permission:product-edit', only: ['edit', 'update']),
+            new Middleware('permission:product-delete', only: ['destroy']),
+        ];
     }
     /**
      * Отобразить список ресурсов.
@@ -22,7 +27,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::latest()->paginate(5);
-        return view('products.index', compact(['products']))
+        return view('products.index', compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
