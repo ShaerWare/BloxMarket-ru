@@ -40,7 +40,7 @@
                 </td>
                 <td>
                     <a class="btn btn-info" href="{{ route('users.show', $user->id) }}">{{ __('Смотреть') }}</a>
-                    <a class="btn btn-primary" href="{{ route('users.edit', $user->id) }}">{{ __('Изменить') }}</a>
+                    <a class="btn btn-primary" href="{{ route('users.edit', $user->id) }}">{{ __('Забанить') }}</a>
                     <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                         @csrf
                         @method('DELETE')

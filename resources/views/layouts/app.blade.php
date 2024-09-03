@@ -42,10 +42,13 @@
                                         <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                                         <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                                     @else
-                                        <li><a class="nav-link" href="{{ route('users.index') }}">Управление
-                                                пользователями</a></li>
-                                        <li><a class="nav-link" href="{{ route('roles.index') }}">Настройка ролей</a></li>
-                                        <li><a class="nav-link" href="{{ route('products.index') }}">Управление товарами</a>
+                                        <li><a class="nav-link" href="{{ route('users.index') }}">{{ __('Управление
+                                                футером') }}</a></li>
+                                        <li><a class="nav-link" href="{{ route('users.index') }}">{{ __('Управление
+                                                пользователями') }}</a></li>
+                                        <li><a class="nav-link" href="{{ route('roles.index') }}">{{ __('Настройка ролей') }}</a></li>
+                                        <li><a class="nav-link" href="{{ route('products.index') }}">{{ __('Управление
+                                                товарами') }}</a>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
