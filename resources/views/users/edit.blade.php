@@ -7,11 +7,10 @@
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
                     <br>
-                    <h2>{{ __('Правки') }}</h2><br>
+                    <h2>{{ _('Правки') }}</h2><br>
                 </div>
                 <div class="pull-right">
-                    <a class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition ml-4"
-                        href="{{ route('users.index') }}"> {{ __('Назад') }}</a>
+                    <a class="btn btn-primary" href="{{ route('users.index') }}"> {{ _('Назад') }}</a>
                 </div><br>
             </div>
         </div>
@@ -19,7 +18,7 @@
 
     @if (count($errors) > 0)
         <div class="alert alert-danger">
-            <strong>{{ __('Упс!') }}</strong> {{ __('У нас проблемы.') }}<br><br>
+            <strong>{{ _('Упс!') }}</strong> {{ _('У нас проблемы.') }}<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -34,7 +33,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>{{ __('Имя') }}:</strong>
+                    <strong>{{ _('Имя') }}:</strong>
 
                     <input value="{{ $user->name }}" type="text" class="form-control" name="name" placeholder="Name"
                         required>
@@ -46,7 +45,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>{{ __('Email:') }}</strong>
+                    <strong>{{ _('Email:') }}</strong>
 
                     <input value="{{ $user->email }}" type="email" class="form-control" name="email"
                         placeholder="Email address" required>
@@ -55,30 +54,16 @@
                     @endif
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>{{ __('Password:') }}</strong>
-                    <input type="text" name="password" placeholder="password" />
 
-                </div>
-            </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>{{ __('Confirm Password:') }}</strong>
-                    <input type="text" name="confirm-password" placeholder="password" />
-
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>{{ __('Role:') }}</strong>
+                    <strong>{{ _('Роль:') }}</strong>
                     <br />
                     <p>
                         <select name="roles">
                             @foreach ($roles as $role)
-                                <option value="{{ $role }}"
-                                    {{ in_array($role, $userRole) ? 'selected' : '' }}>
-                                    >{{ $role }}</option>
+                                <option value="{{ $role }}" {{ in_array($role, $userRole) ? 'selected' : '' }}>
+                                    {{ $role }}</option>
                             @endforeach
                         </select>
                         @if ($errors->has('role'))
@@ -89,8 +74,7 @@
                 </div>
             </div><br>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit"
-                    class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition ml-4">{{ __('Обновить данные') }}</button>
+                <button type="submit" class="btn btn-primary">{{ __('Обновить данные') }}</button>
             </div>
         </div>
     </form>
