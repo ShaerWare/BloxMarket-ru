@@ -1,20 +1,22 @@
 @extends('layouts.app')
 
+
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Edit Role</h2>
-        </div>
+            <h2>{{ __('Правки ролей') }}</h2>
+        </div><br>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('roles.index') }}">{{ __('Назад') }}</a>
         </div>
     </div>
 </div>
+<br>
 
 @if (count($errors) > 0)
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>{{ __('Упс!') }}</strong> {{ __('У нас проблемы.') }}<br><br>
         <ul>
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -23,30 +25,68 @@
     </div>
 @endif
 
-{!! Form::model($role, ['method' => 'PATCH','route' => ['roles.update', $role->id]]) !!}
+<form action="{{ route('roles.update', $role->id) }}" method="post">
+    @method('patch')
+    @csrf
+
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Name:</strong>
-            {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+            <strong>{{ __('Имя') }}:</strong>
+            <input value="{{ $role->name }}"
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        placeholder="{{ __('Имя') }}" required>
+
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Permission:</strong>
+            <strong>{{_('Раздел')}}:</strong>
             <br/>
-            @foreach($permission as $value)
-                <label>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'name')) }}
-                {{ $value->name }}</label>
-            <br/>
-            @endforeach
+
+            <table class="table table-striped">
+                <thead>
+                    <th scope="col" width="1%"> </th>
+
+                </thead>
+            </table>
         </div>
     </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>{{_('Настройки')}}:</strong>
+            <br/>
+
+            <table class="table table-striped">
+                <thead>
+                    <th scope="col" width="1%"> </th>
+
+                </thead>
+
+                @foreach($permission as $value)
+                    <tr>
+                        <td>
+                            <input type="checkbox"
+                            name="permission[]"
+                            value="{{ $value->name }}"
+                            class='value'>
+
+                        </td>
+                        <td>{{ $value->name }}</td>
+
+                    </tr>
+                @endforeach
+            </table>
+        </div>
+    </div>
+    <br>
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">{{ __('Обновить данные')}}</button>
     </div>
 </div>
-{!! Form::close() !!}
+</form>
 
 @endsection
-<p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
+<p class="text-center text-primary"><small> </small></p>
