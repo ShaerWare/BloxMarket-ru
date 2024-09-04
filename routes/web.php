@@ -22,10 +22,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    //Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
     Route::resource('/roles', RoleController::class);
     Route::resource('/users', UserController::class);
     Route::resource('/products', ProductController::class);
-    Route::get('/products', [ProductController::class, 'index'])->name('index');
+    //Route::get('/products', [ProductController::class, 'index'])->name('index');
 });
 
 require __DIR__.'/auth.php';
