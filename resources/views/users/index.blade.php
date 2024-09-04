@@ -6,9 +6,7 @@
             <div class="pull-left">
                 <h2>{{ __('Пользователи') }}</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('users.create') }}">{{ __(' Создать нового пользователя') }}</a>
-            </div>
+
         </div>
     </div>
 
