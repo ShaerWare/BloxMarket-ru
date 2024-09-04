@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductController;
 // });
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
+//
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -23,7 +24,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('/roles', RoleController::class);
     Route::resource('/users', UserController::class);
-    Route::resource('products', ProductController::class);
+    Route::resource('/products', ProductController::class);
+    Route::get('/products', [ProductController::class, 'index'])->name('index');
 });
 
 require __DIR__.'/auth.php';
