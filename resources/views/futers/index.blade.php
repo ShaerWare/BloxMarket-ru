@@ -8,7 +8,7 @@
             </div>
             <div class="pull-right">
                 @can('product-create')
-                <a class="btn btn-success" href="{{ route('products.create') }}">{{_('Создать новый')}}</a>
+                <a class="btn btn-success" href="{{ route('futers.create') }}">{{_('Создать новый')}}</a>
                 @endcan
             </div>
         </div>
