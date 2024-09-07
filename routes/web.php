@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FuterController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -25,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/roles', RoleController::class);
     Route::resource('/users', UserController::class);
     Route::resource('/products', ProductController::class);
+    Route::resource('/futers', FuterController::class);
 });
 
 require __DIR__.'/auth.php';
