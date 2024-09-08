@@ -42,7 +42,7 @@
                                         <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                                         <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                                     @else
-                                        <li><a class="nav-link" href="{{ route('users.index') }}">{{ __('Управление
+                                        <li><a class="nav-link" href="{{ route('futers.index') }}">{{ __('Управление
                                                 футером') }}</a></li>
                                         <li><a class="nav-link" href="{{ route('users.index') }}">{{ __('Управление
                                                 пользователями') }}</a></li>
