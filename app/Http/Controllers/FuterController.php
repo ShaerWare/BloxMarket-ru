@@ -34,7 +34,7 @@ class FuterController extends Controller
      */
     public function create()
     {
-        //
+        return view('futers.create');
     }
 
     /**
@@ -42,7 +42,15 @@ class FuterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'name' => 'required',
+            'detail' => 'required',
+        ]);
+
+        Futer::create($request->all());
+
+        return redirect()->route('futers.index')
+            ->with('success', 'Futer created successfully.');
     }
 
     /**
@@ -50,7 +58,7 @@ class FuterController extends Controller
      */
     public function show(Futer $futer)
     {
-        //
+        return view('futers.show', compact('futer'));
     }
 
     /**
@@ -58,7 +66,7 @@ class FuterController extends Controller
      */
     public function edit(Futer $futer)
     {
-        //
+        return view('futers.edit', compact('futer'));
     }
 
     /**
@@ -66,7 +74,15 @@ class FuterController extends Controller
      */
     public function update(Request $request, Futer $futer)
     {
-        //
+        request()->validate([
+            'name' => 'required',
+            'detail' => 'required',
+        ]);
+
+        $futer->update($request->all());
+
+        return redirect()->route('futers.index')
+            ->with('success', 'futer updated successfully');
     }
 
     /**
@@ -74,6 +90,9 @@ class FuterController extends Controller
      */
     public function destroy(Futer $futer)
     {
-        //
+        $futer->delete();
+
+        return redirect()->route('futers.index')
+            ->with('success', 'futer deleted successfully');
     }
 }

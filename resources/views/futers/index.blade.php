@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>{{_('Настройка ролей пользователей')}}</h2>
+            <h2>{{_('Настройка futers')}}</h2>
         </div>
         <div class="pull-right">
         @can('role-create')
@@ -28,14 +28,14 @@
   </tr>
     @foreach ($futers as $key => $futer)
     <tr>
-        <td>{{ ++$i }}</td>
-        <td>{{ $role->name }}</td>
+        <td>{{ $futer->name }}</td>
+        <td>{{ $futer->detail }}</td>
         <td>
-            <a class="btn btn-info" href="{{ route('futers.show',$role->id) }}">{{_('Показать')}}</a>
+
             @can('role-edit')
-                <a class="btn btn-primary" href="{{ route('futers.edit',$role->id) }}">{{_('Изменить')}}</a>
+                <a class="btn btn-primary" href="{{ route('futers.edit',$futer->id) }}">{{_('Изменить')}}</a>
             @endcan
-            <form action="{{ route('futers.destroy',$role->id) }}" method="POST">
+            <form action="{{ route('futers.destroy',$futer->id) }}" method="POST">
 
 
                 @csrf

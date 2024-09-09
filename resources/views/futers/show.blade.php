@@ -7,7 +7,7 @@
                 <h2> {{_('Показать')}}</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('products.index') }}"> {{_('Назад')}}</a>
+                <a class="btn btn-primary" href="{{ route('futers.index') }}"> {{_('Назад')}}</a>
             </div>
         </div>
     </div>
@@ -16,13 +16,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>{{_('Название')}}:</strong>
-                {{ $product->name }}
+                {{ $futer->name }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>{{_('Описание')}}:</strong>
-                {{ $product->detail }}
+                <strong>{{_('Название файла')}}:</strong>
+                {{ $futer->detail }}
             </div>
         </div>
     </div>

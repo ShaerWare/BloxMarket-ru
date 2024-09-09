@@ -7,7 +7,7 @@
                 <h2>{{_('Изменить')}}</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('products.index') }}"> {{_('Назад')}}</a>
+                <a class="btn btn-primary" href="{{ route('futers.index') }}"> {{_('Назад')}}</a>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <form action="{{ route('products.update',$product->id) }}" method="POST">
+    <form action="{{ route('futers.update',$futer->id) }}" method="POST">
     	@csrf
         @method('PUT')
 
@@ -31,13 +31,13 @@
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>{{_('Название')}}:</strong>
-		            <input type="text" name="name" value="{{ $product->name }}" class="form-control" placeholder="Name">
+		            <input type="text" name="name" value="{{ $futer->name }}" class="form-control" placeholder="Name">
 		        </div>
 		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>{{_('Описание')}}:</strong>
-		            <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $product->detail }}</textarea>
+		            <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $futer->detail }}</textarea>
 		        </div>
 		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -7,7 +7,7 @@
                 <h2>{{ _('Создать новый') }}</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('products.index') }}"> {{ _('Назад') }}</a>
+                <a class="btn btn-primary" href="{{ route('futers.index') }}"> {{ _('Назад') }}</a>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <form action="{{ route('products.store') }}" method="POST">
+    <form action="{{ route('futers.store') }}" method="POST">
         @csrf
 
         <div class="row">
