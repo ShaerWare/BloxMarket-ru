@@ -4,17 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Models\Futer;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Configuration\Middleware;
+
 
 class FuterController extends Controller
 {
+    public static function middleware(): array
+    {
+        return [
+            //new Middleware('permission:product-list|product-create|product-edit|product-delete', only: ['index', 'show']),
+            new Middleware('permission:product-create', only: ['create', 'store']),
+            new Middleware('permission:product-edit', only: ['edit', 'update']),
+            new Middleware('permission:product-delete', only: ['destroy']),
+        ];
+    }
     /**
-     * Display a listing of the resource.
+     * Отобразить список ресурсов.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $futers = Futer::latest()->paginate(5);
+        return view('futers.index', compact('futers'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-
     /**
      * Show the form for creating a new resource.
      */
