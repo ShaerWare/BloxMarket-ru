@@ -23,8 +23,13 @@
     <table class="table table-bordered">
         <tr>
             <th>{{_('№')}}</th>
+            <th>{{_('Артикул')}}</th>
             <th>{{_('Название')}}</th>
             <th>{{_('Описание')}}</th>
+            <th>{{_('Фото')}}</th>
+            <th>{{_('Дескрипшн')}}</th>
+            <th>{{_('Акция')}}</th>
+            <th>{{_('Скидка')}}</th>
             <th width="280px">{{_('Действие')}}</th>
         </tr>
 	    @foreach ($products as $product)
