@@ -13,7 +13,7 @@ class ProductController extends Controller
     public static function middleware(): array
     {
         return [
-            //new Middleware('permission:product-list|product-create|product-edit|product-delete', only: ['index', 'show']),
+            new Middleware('permission:product-list|product-create|product-edit|product-delete', only: ['index', 'show']),
             new Middleware('permission:product-create', only: ['create', 'store']),
             new Middleware('permission:product-edit', only: ['edit', 'update']),
             new Middleware('permission:product-delete', only: ['destroy']),
