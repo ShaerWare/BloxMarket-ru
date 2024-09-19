@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Category;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Foundation\Configuration\Middleware;
 
 class CategoryController extends Controller
 {
@@ -11,7 +15,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+
+        $category = Category::all();
+        return view('category.index', compact('category'));
     }
 
     /**

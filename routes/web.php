@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FuterController;
+use App\Http\Controllers\CategoryController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/users', UserController::class);
     Route::resource('/products', ProductController::class);
     Route::resource('/futers', FuterController::class);
+    Route::resource('/category', CategoryController::class);
 });
 
 require __DIR__.'/auth.php';
