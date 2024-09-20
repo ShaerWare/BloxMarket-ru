@@ -47,6 +47,7 @@
                                         <li><a class="nav-link" href="{{ route('users.index') }}">{{ __('Управление
                                                 пользователями') }}</a></li>
                                         <li><a class="nav-link" href="{{ route('roles.index') }}">{{ __('Настройка ролей') }}</a></li>
+                                        <li><a class="nav-link" href="{{ route('category.index') }}">{{ __('Категории товаров') }}</a></li>
                                         <li><a class="nav-link" href="{{ route('products.index') }}">{{ __('Управление
                                                 товарами') }}</a>
                                         </li>
