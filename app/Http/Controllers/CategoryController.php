@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Category;
-use Spatie\Permission\Models\Permission;
-use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -16,9 +13,12 @@ class CategoryController extends Controller
     public function index()
     {
 
-        $category = Category::latest()->paginate(5); dd($category);
+        // $category = Category::latest()->paginate(5);
+        $category = Category::all();
+
+        //dd($category);
         return view('category.index', compact('category'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
