@@ -22,7 +22,7 @@ class ProductFactory extends Factory
             'image' => $this->faker->imageUrl(),
             'filename' => $this->faker->imageUrl(),
             'price' => $this->faker->numberBetween(1000, 5000),
-            'sku' => $this->faker->words(7, true),
+            'sku' => $this->faker->words(1, true),
         ];
     }
 }

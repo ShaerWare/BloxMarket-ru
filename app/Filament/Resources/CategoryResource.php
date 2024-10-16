@@ -28,14 +28,13 @@ class CategoryResource extends Resource
                     ->maxLength(255)
                     ->default(null),
                 Forms\Components\TextInput::make('slug')
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
                     ->label('Картинка')
                     ->image()
                     ->minSize(30)
                     ->maxSize(1024),
-                Forms\Components\Textarea::make('description')
+                Forms\Components\RichEditor::make('description')
                     ->label('Описание')
                     ->columnSpanFull(),
                 /*Forms\Components\TextInput::make('parent_id')
@@ -51,7 +50,8 @@ class CategoryResource extends Resource
                     ->numeric()
                     ->default(1),
                 Forms\Components\Toggle::make('is_active')
-                    ->label('Отображение')
+                    ->label('Видимость')
+                    ->default(1)
                     ->required(),
             ]);
     }
@@ -76,7 +76,7 @@ class CategoryResource extends Resource
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_active')
-                    ->label('Отображение')
+                    ->label('Видимость')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
