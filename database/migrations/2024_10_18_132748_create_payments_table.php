@@ -19,6 +19,7 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->integer('amount');
             $table->string('currency');
+            $table->string('provider');
             $table->string('email');
             $table->string('name');
             $table->text('description')->nullable();
