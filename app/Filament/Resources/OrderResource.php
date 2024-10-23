@@ -91,7 +91,7 @@ class OrderResource extends Resource
                     ->sortable()
                     ->summarize([
                         Tables\Columns\Summarizers\Sum::make()
-                            ->money(),
+                            ->money('RUB'),
                     ]),
                 Tables\Columns\TextColumn::make('status')
                     ->label('Статус')
