@@ -16,6 +16,7 @@ class Order extends Model
         'number',
         'total_price',
         'status',
+        'currency',
         'comment',
     ];
 
@@ -28,9 +29,9 @@ class Order extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function items(): HasMany
+    public function products(): HasMany
     {
-        return $this->hasMany(OrderItem::class, 'order_id');
+        return $this->hasMany(OrderProduct::class, 'order_id');
     }
 
     public function payments(): HasMany
