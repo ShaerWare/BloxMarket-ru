@@ -9,6 +9,8 @@ class Futer extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name', 'detail'
+        'name',
+        'detail',
+        'is_active'
     ];
 }

@@ -32,6 +32,9 @@ class FuterResource extends Resource
                     ->label('Описание')
                     ->required()
                     ->columnSpanFull(),
+                Forms\Components\Toggle::make('is_active')
+                    ->label('Активен')
+                    ->required(),
             ]);
     }
 
@@ -42,6 +45,9 @@ class FuterResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->label('Название')
                     ->searchable(),
+                Tables\Columns\IconColumn::make('is_active')
+                    ->label('Активен')
+                    ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
