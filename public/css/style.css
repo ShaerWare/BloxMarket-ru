@@ -1,0 +1,35 @@
+.updateImage {
+    height: 130px;
+    width: 150px;
+}
+
+.productImage {
+    width: 80px;
+    object-fit: contain;
+}
+
+.productActions {
+    display: flex;
+}
+
+.productActions a {
+    margin: 5px !important;
+}
+
+.productActions i {
+    font-size: 15px;
+}
+
+.adminBannerImage {
+    width: 150px;
+    object-fit: contain;
+}
+
+.deleteBtn {
+    padding: 5px 10px !important;
+    font-size: 10px !important;
+}
+
+.deleteBtn > i{
+    font-size: 12px !important;
+}
